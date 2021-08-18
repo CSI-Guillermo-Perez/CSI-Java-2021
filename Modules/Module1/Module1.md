@@ -168,11 +168,11 @@ Select `upstream/main`
 
 What is the difference between Git and GitHub?
 
- - Answer:
+ - Answer: Git allows you to track changes in a system file, such as removing files, adding and removing lines in a file and renaming files. Github uses Git and in it you can share your codes with others.
 
 What is the difference between a git commit and a git push?
 
- - Answer:
+ - Answer:A git commit saves any changes made to files on your local machine, to the local repo.
 
 What is the difference between a pull, and an upstream pull?
 
