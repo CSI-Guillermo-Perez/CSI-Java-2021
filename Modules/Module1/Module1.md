@@ -176,11 +176,11 @@ What is the difference between a git commit and a git push?
 
 What is the difference between a pull, and an upstream pull?
 
- - Answer:
-
+ - Answer:When you pull a repo you are updating your local copy with any changes that have been made on the remote version. An upstream pull is whene you clone a repo.
+ 
 Was any part of these instructions unclear or incomplete?
 
- - Answer:
+ - Answer: No, none of the instructions were neither unclear or incomplete.
 
 Type down any class notes below this sentence:
 
