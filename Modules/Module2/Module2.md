@@ -160,18 +160,18 @@
 What is a benefit of using Markdown?
 https://www.markdownguide.org/getting-started/
 
- - Answer:
+ - Answer:A markdown is a lightweight markup language that you can use to add formatting elements to plaintext text documents.
 
 What is a java class and what is a java package?
 
- - Answer:
+ - Answer: A java class is like an object constructor and a java package is a group of similar types of classes, interfaces and sub-packages.
 
 Add some cool original code into HelloWorld.py! Impress me.
 
 
 What part of the instructions was incomplete or unclear?
 
- - Answer:
+ - Answer: No, none of the instructions were incomplete nor unclear.
 
 Type down any class notes below this sentence:
 
