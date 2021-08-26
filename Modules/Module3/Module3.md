@@ -157,19 +157,19 @@ Describe what an array is in your own words.
 How do you address an index in an array? Write a code that assigns 34 to a new variable by accessing the value stored in:  
         int[] arr = {4, 3, -1, 4, 34};
 
- - Answer: int s = values [5]
+ - Answer: int m = arr[34];
 
 What is the first index of a list? Why?
 
- - Answer:
+ - Answer:The first index of a list has index 0, because it is a way of numbering in which the initial element of a sequence is assigned.
 
 Provide an original example of a null value. It must prove your understanding of the concept.
 
- - Answer:
+ - Answer: An example of a null value can be saying that in a room full of people, some of them have played sports.
 
 What part of this instructions was incomplete or unclear?
 
- - Answer:
+ - Answer: No, none of the instructions were incomplete nor unclear.
 
 Type down any class notes below this sentence:
 
