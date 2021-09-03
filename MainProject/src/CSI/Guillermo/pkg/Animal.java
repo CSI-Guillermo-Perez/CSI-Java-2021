@@ -6,18 +6,21 @@ public class Animal {
     String name;
     int age;
     String scientificName;
-    String taxonomy;
+    Taxonomy taxonomy;
     //  Constructors
    	public Animal(String name,int age,String scientificname) {
    		this.name = name;
    		this.age = age;
    		this.scientificName = scientificname;
    	}
-   	public Animal(String name,int age,String scientificname, taxonomy) {
+   	public Animal(String name,int age,String scientificname,Taxonomy taxonomy) {
    	   	this.name = name;
    	   	this.age = age;
    	   	this.scientificName = scientificname;
-   	   	this.Taxonomy = taxonomy;
+   		this.taxonomy = taxonomy;
+   	}
+   	public Animal() {
+
    	}
 	//  Getters and Setters  
     public String getName(){
@@ -40,7 +43,13 @@ public class Animal {
     public void setScientificName(String scientificName){
         this.scientificName = scientificName;
     }
-
+   public Taxonomy gettaxonomy(){
+	   return taxonomy;
+   }
+   public void setTaxonomy(Taxonomy taxonomy){
+       this.taxonomy = taxonomy;
+   }
+    
     //Main Method
     public static void main(String[] args){
 	Animal a = new Animal(); 
@@ -59,13 +68,15 @@ public class Animal {
 	System.out.println("Age: " + a2.getAge());
 	System.out.println("Scientific Name: " + a2.getScientificName());
 	
-	Animal a3 = new Animal(Fly,15 days,Diptera,Order); 
 	
+	taxonomy t = new Taxonomy ("order");
 	
+	Animal a3 = new Animal("Bearded dragon",9,"Pogona",t); 
+		
 	System.out.println("Name: " + a3.getName());
 	System.out.println("Age: " + a3.getAge());
 	System.out.println("Scientific Name: " + a3.getScientificName());
-	System.out.println("Taxonomy: " + a3.getTaxonomy());
+	System.out.println("Taxonomy: " + a3.gettaxonomy());
 	}
 
 	}
