@@ -128,7 +128,27 @@ package CSI.Guillermo.pkg;
 		String genus;
 		String species; 
 		
-		
+		public String toString() {
+			String s = String.format("""
+					Domain: %s
+					Kingdom: %s
+					Phylum: %s
+					Classis: %s
+					Order: %s
+					Family: %s
+					Genus: %s
+					Species: %s
+					""", 
+					domain,
+					kingdom,
+					phylum,
+					classis,
+					order,
+					family,
+					genus,
+					species);
+			return s;	
+		}
 		
 	/**
 	 * @param args

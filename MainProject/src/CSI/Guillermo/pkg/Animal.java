@@ -8,6 +8,19 @@ public class Animal {
     String scientificName;
     Taxonomy taxonomy;
     //  Constructors
+    public String toString() {
+    	String s = String.format("""
+    			Name: %s
+    			Age: %d
+    			Scientific Name: %s
+    			Taxonomy: %s
+    			""", 
+    			name,
+    			age,
+    			scientificName,
+    			taxonomy);
+    	return s;	
+    }
    	public Animal(String name,int age,String scientificname) {
    		this.name = name;
    		this.age = age;
@@ -52,7 +65,8 @@ public class Animal {
     
     //Main Method
     public static void main(String[] args){
-	Animal a = new Animal(); 
+	
+    Animal a = new Animal(); 
 	a.setName("Blob fish");
 	a.setAge(67);  
 	a.setScientificName("Psychrolutes marcidus");
@@ -68,15 +82,16 @@ public class Animal {
 	System.out.println("Age: " + a2.getAge());
 	System.out.println("Scientific Name: " + a2.getScientificName());
 	
+	Taxonomy t = new Taxonomy("Eukaryote","Animalia","Anthropoda","Insecta","Panorpida","Antilophora","Diptera","anthomyiid flies");
 	
-	taxonomy t = new Taxonomy ("order");
-	
-	Animal a3 = new Animal("Bearded dragon",9,"Pogona",t); 
+	Animal a3 = new Animal("Fly",15,"Diptera",t); 
+	System.out.println(a3);
 		
 	System.out.println("Name: " + a3.getName());
 	System.out.println("Age: " + a3.getAge());
 	System.out.println("Scientific Name: " + a3.getScientificName());
 	System.out.println("Taxonomy: " + a3.gettaxonomy());
+	
 	}
 
 	}
