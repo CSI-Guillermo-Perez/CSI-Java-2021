@@ -117,7 +117,9 @@ package CSI.Guillermo.pkg;
 			this.genus = genus;
 			this.species = species;
 		}
-
+		public Taxonomy() {
+			
+		}
 
 
 		String kingdom;

@@ -32,8 +32,8 @@ public class Animal {
    	   	this.scientificName = scientificname;
    		this.taxonomy = taxonomy;
    	}
+   	
    	public Animal() {
-
    	}
 	//  Getters and Setters  
     public String getName(){
@@ -91,6 +91,8 @@ public class Animal {
 	System.out.println("Age: " + a3.getAge());
 	System.out.println("Scientific Name: " + a3.getScientificName());
 	System.out.println("Taxonomy: " + a3.gettaxonomy());
+	
+	
 	
 	}
 
