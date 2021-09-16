@@ -32,21 +32,43 @@ public class AnimalFarm {
 
 		animals[3] = new Animal("Axolotl", 9, "Ambystoma mexicanum", new Taxonomy("Eukaryote", "Animalia", "Chordata",
 				"Amphibia", "Urodela", "Ambystomatidae", "Ambystoma", "A. mexicanum"));
-		
+
 		animals[4] = new Animal();
-		
-		animals[5] = new Animal("Fox", 3,"Vulpes vulpes");
-		
-		animals[6] = new Animal("Anteater", 14,"Vermilingua",new Taxonomy());
+
+		animals[5] = new Animal("Fox", 3, "Vulpes vulpes");
+
+		animals[6] = new Animal("Anteater", 14, "Vermilingua", new Taxonomy());
 		printAnimals();
-		
 	}
 
 	public static void printAnimals() {
 		for (int i = 0; i < animals.length; i++) {
-			System.out.println("Animal: "+i);
+			System.out.println("Animal: " + i);
 			System.out.println(animals[i]);
 
+		}
+	}
+
+	public static void printEachAnimals() {
+		{
+			for (Animal a : animals) {
+				System.out.println(a);
+			}
+		}
+	}
+
+	int x = 100;
+	{
+		{
+
+			while (x > 0) {
+				System.out.println(x);
+				if (x == 50) {
+					break;
+				}
+				x--;
+
+			}
 		}
 	}
 }
