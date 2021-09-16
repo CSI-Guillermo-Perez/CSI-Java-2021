@@ -55,20 +55,5 @@ public class AnimalFarm {
 				System.out.println(a);
 			}
 		}
-	}
-
-	int x = 100;
-	{
-		{
-
-			while (x > 0) {
-				System.out.println(x);
-				if (x == 50) {
-					break;
-				}
-				x--;
-
-			}
-		}
-	}
+}
 }
