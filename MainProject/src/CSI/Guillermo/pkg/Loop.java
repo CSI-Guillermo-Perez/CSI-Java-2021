@@ -21,19 +21,20 @@ public class Loop {
 //	}
 //	}
 //	
-	int x = 100;
-	{
-		{
+//	int x = 100;
+//	{
+//		{
+//
+//			while (x > 0) {
+//				System.out.println(x);
+//				if (x == 50) {
+//					break;
+//				}
+//				x--;
+//
+//			}
+//		}
+//	}
 
-			while (x > 0) {
-				System.out.println(x);
-				if (x == 50) {
-					break;
-				}
-				x--;
-
-			}
-		}
-	}
 }
 }
