@@ -158,7 +158,7 @@ public class Calculator {
 			// Bought a House at 35 as a mid-level Nuclear Engineer
 			if (age == 35 && cash > 220_000) {
 				double housePrice = 205_000;
-				double downPayment = 205_000 * 0.15;
+				double downPayment = housePrice * 0.15;
 				double interestRate = 0.03;
 				// int repaymentYears = 15;
 				int repaymentYears = 30;
