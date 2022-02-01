@@ -1,6 +1,3 @@
-/**
- * 
- */
 package snake;
 
 import java.awt.Color;
@@ -46,7 +43,6 @@ public class Board extends JPanel implements ActionListener {
     private boolean upDirection = false;
     private boolean downDirection = false;
     private boolean inGame = true;
-//    private boolean boost = true;
 
     private Timer timer;
     private Image ball;
@@ -66,7 +62,6 @@ public class Board extends JPanel implements ActionListener {
     private void initBoard() {
 
         addKeyListener(new TAdapter());
-//        setBackground(new Color(232,211,185));
         setFocusable(true);
 
         setPreferredSize(new Dimension(B_WIDTH, B_HEIGHT));
@@ -76,25 +71,25 @@ public class Board extends JPanel implements ActionListener {
 
     private void loadImages() {
 //
-    	ImageIcon iid = new ImageIcon("src/resources/dot.png");
+    	ImageIcon iid = new ImageIcon(getClass().getResource("dot.png"));
         ball = iid.getImage();
 
-        ImageIcon iia = new ImageIcon("src/resources/ender.png");
+        ImageIcon iia = new ImageIcon(getClass().getResource("ender.png"));
         apple = iia.getImage();
         
-        ImageIcon iih = new ImageIcon("src/resources/steve.png");
+        ImageIcon iih = new ImageIcon(getClass().getResource("steve.png"));
         head = iih.getImage();
         
-        	ImageIcon iig = new ImageIcon("src/resources/end.png");
+        ImageIcon iig = new ImageIcon(getClass().getResource("end.png"));
         background = iig.getImage();
         
-        ImageIcon iim = new ImageIcon("src/resources/mine.png");
+        ImageIcon iim = new ImageIcon(getClass().getResource("mine.png"));
         mine= iim.getImage();
     }
 
     private void initGame() {
 
-        dots = 3;
+        dots = 1;
 
         for (int z = 0; z < dots; z++) {
             x[z] = 50 - z * 10;
@@ -201,10 +196,11 @@ public class Board extends JPanel implements ActionListener {
 
     	if ((x[0] == mine_x) && (y[0] == mine_y)) {
         	
-            dots++;
-            score++;
+            score-=dots;
             locateMine();
-
+            if(score < 1) {
+            		inGame = false;
+}
     }
     }
     
@@ -366,3 +362,4 @@ public class Board extends JPanel implements ActionListener {
         }
     }
 }
+
