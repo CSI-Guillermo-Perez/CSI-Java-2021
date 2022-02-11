@@ -11,14 +11,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import csi.perez.finance.Loan;
+
 public class Board extends JPanel implements ActionListener {
 
+	
+	
     private final int B_WIDTH = 1000;
     private final int B_HEIGHT = 750;
     private final int DOT_SIZE = 50;
@@ -37,6 +43,7 @@ public class Board extends JPanel implements ActionListener {
     private int apple_y;
     private int mine_x;
     private int mine_y;
+    
 
     private boolean leftDirection = false;
     private boolean rightDirection = true;
@@ -323,34 +330,29 @@ public class Board extends JPanel implements ActionListener {
 
             int key = e.getKeyCode();
 
-            if ((key == KeyEvent.VK_A) && (!rightDirection)) {
+            if ((key == KeyEvent.VK_LEFT) && (!rightDirection)) {
                 leftDirection = true;
                 upDirection = false;
                 downDirection = false;
             }
 
-            if ((key == KeyEvent.VK_D) && (!leftDirection)) {
+            if ((key == KeyEvent.VK_RIGHT) && (!leftDirection)) {
                 rightDirection = true;
                 upDirection = false;
                 downDirection = false;
             }
 
-            if ((key == KeyEvent.VK_W) && (!downDirection)) {
+            if ((key == KeyEvent.VK_UP) && (!downDirection)) {
                 upDirection = true;
                 rightDirection = false;
                 leftDirection = false;
             }
 
-            if ((key == KeyEvent.VK_S) && (!upDirection)) {
+            if ((key == KeyEvent.VK_DOWN) && (!upDirection)) {
                 downDirection = true;
                 rightDirection = false;
                 leftDirection = false;
             }
-//            if ((key == KeyEvent.VK_SPACE) && (!inGame)) {
-//            	if(!inGame) {
-//            		BOOST -= DELAY;
-//            	}
-//            }
             if ((key == KeyEvent.VK_ENTER && (!inGame))) {
             	 if (!inGame) {
                      timer.stop();
