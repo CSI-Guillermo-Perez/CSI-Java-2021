@@ -1,6 +1,7 @@
 package snake;
 
 import java.awt.Color;
+
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontMetrics;
@@ -186,8 +187,8 @@ public class Board extends JPanel implements ActionListener {
             locateApple();
          
             Random color = new Random();
-
-            
+           
+        
             int r = color.nextInt(255);
             int n = color.nextInt(255);
             int b = color.nextInt(255);

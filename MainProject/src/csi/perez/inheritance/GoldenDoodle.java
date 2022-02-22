@@ -6,7 +6,15 @@ public class GoldenDoodle extends Dog{
 		super("Golden Doodle","brown", 70, false, true,"goldendoodle.png");
 	}
 @Override 
-	
+Noise bark() {
+		Noise n = new Noise("Waaaaaaaughhh!", 1, true);
+		System.out.println(n);
+		return n;
+	}
+@Override
+void wagtail() {
+	System.out.println("woosh woosh");
+}
 	}
 
 

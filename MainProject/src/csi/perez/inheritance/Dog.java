@@ -77,14 +77,25 @@ public class Dog {
 	}
 
 	public class Noise {
+		String sound;
 		int intention;
-		int loudness;
+		Boolean loudness;
 		
-		public Noise(int intention, int loudness) {
+		public String toString() {
+			return ("Waaaaaaaughhh!");
+		}
+		
+	
+		
+		public Noise(String sound, int intention, Boolean loudness) {
 			super();
+			this.sound = sound;
 			this.intention = intention;
 			this.loudness = loudness;
 		}
+
+
+
 		public Noise() {}
 	}
 }
