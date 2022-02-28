@@ -1,5 +1,7 @@
 package csi.perez.inheritance;
 
+import javax.swing.ImageIcon;
+
 public class Dog {
 	String breed;
 	String hair;
@@ -7,15 +9,16 @@ public class Dog {
 	Boolean wild = true;
 	Boolean gender;
 	ImageIcon icon;
-	
-	public Dog(String breed, String hair, int size, Boolean wild, Boolean gender,String imageDir) {
+
+	public Dog(String breed, String hair, int size, Boolean wild, Boolean gender, String imageDir) {
 		super();
 		this.breed = breed;
 		this.hair = hair;
 		this.size = size;
 		this.wild = wild;
 		this.gender = gender;
-		this.icon = new ImageIcon(getClass().getResource(imageDir));
+		this.icon = new ImageIcon(new ImageIcon(getClass().getResource(imageDir)).getImage().getScaledInstance(120, 120,
+				java.awt.Image.SCALE_SMOOTH));
 
 	}
 
@@ -25,11 +28,6 @@ public class Dog {
 		{
 			System.out.println(" Raise leg, Tsssss");
 		}
-	}
-
-
-	public Shit eat(Food f) {
-		return null;
 	}
 
 	public void die() {
@@ -43,47 +41,58 @@ public class Dog {
 	public void wagtail() {
 
 	}
+
 	public void mate(Dog D) {
-		
 	}
-	
-	public class Food {
-		int healthy;
-		int type;
-		int texture;
-		int color;
-
-		public Food(int healthy, int type, int texture, int color) {
-			super();
-			this.healthy = healthy;
-			this.type = type;
-			this.texture = texture;
-			this.color = color;
-		}
-
-	}
-	private class Shit {
+	public class Shit {
 		int size;
-		int color;
-		int consistency;
+		String color;
+		String consistency;
 
-		public Shit(int size, int color, int consistency) {
+		public Shit(int size, String color, String consistency) {
 			super();
 			this.size = size;
 			this.color = color;
 			this.consistency = consistency;
 		}
 
+		public Shit() {
+			// TODO Auto-generated constructor stub
+		}
+
 	}
+	public class Food {
+		Boolean healthy;
+		String type;
+		String texture;
+		String color;
+
+		public Food(Boolean healthy, String type, String texture, String color) {
+			super();
+			this.healthy = healthy;
+			this.type = type;
+			this.texture = texture;
+			this.color = color;
+		}
+		public Shit digest() {
+
+			return new Shit();
+
+		}
+	}
+
+	public Shit eat(Food f) {
+
+		return f.digest();
+	}
+
+
 
 	public class Noise {
 		String sound;
 		int intention;
 		Boolean loudness;
 		
-		public String toString() {
-			return ("Waaaaaaaughhh!");
-		}
 		
 	
 		
@@ -96,6 +105,11 @@ public class Dog {
 
 
 
-		public Noise() {}
+
+		public Noise() {
+		}
+
+
+
 	}
 }
