@@ -48,16 +48,18 @@ public class Dog {
 		int size;
 		String color;
 		String consistency;
+	    ImageIcon icon;
 
-		public Shit(int size, String color, String consistency) {
+		public Shit(int size, String color, String consistency, String imageDir) {
 			super();
 			this.size = size;
 			this.color = color;
 			this.consistency = consistency;
+			this.icon = new ImageIcon(new ImageIcon(getClass().getResource(imageDir)).getImage().getScaledInstance(120, 120,
+					java.awt.Image.SCALE_SMOOTH));
 		}
 
 		public Shit() {
-			// TODO Auto-generated constructor stub
 		}
 
 	}
@@ -66,13 +68,16 @@ public class Dog {
 		String type;
 		String texture;
 		String color;
+		ImageIcon icon;
 
-		public Food(Boolean healthy, String type, String texture, String color) {
+		public Food(Boolean healthy, String type, String texture, String color, String imageDir) {
 			super();
 			this.healthy = healthy;
 			this.type = type;
 			this.texture = texture;
 			this.color = color;
+			this.icon = new ImageIcon(new ImageIcon(getClass().getResource(imageDir)).getImage().getScaledInstance(120, 120,
+					java.awt.Image.SCALE_SMOOTH));
 		}
 		public Shit digest() {
 

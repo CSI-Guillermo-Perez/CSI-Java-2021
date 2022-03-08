@@ -19,6 +19,6 @@ public class GoldenDoodle extends Dog {
 
 	public Shit eat() {
 
-		return new Shit(50, "brown", "runny");
+		return new Shit(50, "brown", "runny", "poop.png");
 	}
 }

@@ -18,15 +18,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-
-
-
 public class DogPound extends JPanel implements ActionListener {
 
 	List<Dog> dogs1 = new ArrayList<Dog>();
+	List<Dog.Shit> shit1 = new ArrayList<Dog.Shit>();
 
-	private int B_WIDTH = 800;
-	private int B_HEIGHT = 800;
+	private int B_WIDTH = 1000;
+	private int B_HEIGHT = 700;
 	private int DOG_SIZE = 50;
 	private int ALL_DOGS = 120;
 
@@ -34,6 +32,8 @@ public class DogPound extends JPanel implements ActionListener {
 	private final int y[] = new int[ALL_DOGS];
 
 	private int dogs;
+	private int shit;
+	private int food;
 
 	private boolean leftDirection = false;
 	private boolean rightDirection = true;
@@ -46,8 +46,6 @@ public class DogPound extends JPanel implements ActionListener {
 
 	private int count;
 
-
-	
 	public DogPound() {
 		dogs1.add(new GoldenDoodle());
 		initBoard();
@@ -88,77 +86,120 @@ public class DogPound extends JPanel implements ActionListener {
 		if (isRunning) {
 			for (int z = 0; z < dogs; z++) {
 				if (z == 0) {
-					g.drawImage(dogs1.get(0).icon.getImage(), x[z], y[z], this);
-				} else {
-					g.drawImage(dogs1.get(0).icon.getImage(), x[z], y[z], this);
+					g.drawImage(dogs1.get(z).icon.getImage(), x[z], y[z], this);
+			}
+
+			for (int h = 0; h < shit; h++) {
+				if (h == 0) {
+				g.drawImage(shit1.get(h).icon.getImage(), x[z], y[z], this);
 				}
 			}
-			Toolkit.getDefaultToolkit().sync();
-		
+			}
+		}
+		Toolkit.getDefaultToolkit().sync();
+	}
+
+	private void move() {
+
+		for (int z = dogs; z > 0; z--) {
+			x[z] = x[(z - 1)];
+			y[z] = y[(z - 1)];
+		}
+
+		if (leftDirection) {
+			x[0] -= DOG_SIZE;
+		}
+
+		if (rightDirection) {
+			x[0] += DOG_SIZE;
+		}
+
+		if (upDirection) {
+			y[0] -= DOG_SIZE;
+		}
+
+		if (downDirection) {
+			y[0] += DOG_SIZE;
+		}
+		Random rand = new Random();
+		int m = rand.nextInt(6);
+
+		if (m == 1) {
+			upDirection = true;
+			rightDirection = false;
+			leftDirection = false;
+			downDirection = false;
+		}
+		if (m == 2) {
+			upDirection = false;
+			rightDirection = true;
+			leftDirection = false;
+			downDirection = false;
+		}
+		if (m == 3) {
+			upDirection = false;
+			rightDirection = false;
+			leftDirection = true;
+			downDirection = false;
+		}
+		if (m == 4) {
+			upDirection = false;
+			rightDirection = false;
+			leftDirection = false;
+			downDirection = true;
+		}
+		if (m == 5) {
+			upDirection = false;
+			rightDirection = false;
+			leftDirection = false;
+			downDirection = false;
+		}
+		if (m == 6) {
+			upDirection = false;
+			rightDirection = false;
+			leftDirection = false;
+			downDirection = false;
 		}
 
 	}
 
+	private void checkCollision() {
 
-	private void move() {
+		for (int z = dogs; z > 0; z--) {
 
-        for (int z = dogs; z > 0; z--) {
-            x[z] = x[(z - 1)];
-            y[z] = y[(z - 1)];
-        }
+			if ((z >= 2) && (x[0] == x[z]) && (y[0] == y[z])) {
 
-        if (leftDirection) {
-            x[0] -= DOG_SIZE;
-        }
+			}
+		}
 
-        if (rightDirection) {
-            x[0] += DOG_SIZE;
-        }
+		if (y[0] >= B_HEIGHT) {
+			y[0] -= DOG_SIZE;
+		}
 
-        if (upDirection) {
-            y[0] -= DOG_SIZE;
-        }
+		if (y[0] < 0) {
+			y[0] += DOG_SIZE;
+		}
 
-        if (downDirection) {
-            y[0] += DOG_SIZE;
-        }
-    }
+		if (x[0] >= B_WIDTH) {
+			x[0] -= DOG_SIZE;
+		}
 
-	 private void checkCollision() {
+		if (x[0] < 0) {
+			x[0] += DOG_SIZE;
+		}
 
-	        for (int z = dogs; z > 0; z--) {
+	}
 
-	            if ((z > 4) && (x[0] == x[z]) && (y[0] == y[z])) {
-	                
-	            }
-	        }
+	@Override
+	public void actionPerformed(ActionEvent e) {
 
-	        if (y[0] >= B_HEIGHT) {
-	        }
+		if (isRunning) {
+			checkCollision();
+			move();
+		}
+		repaint();
+	}
 
-	        if (y[0] < 0) {
-	        }
-
-	        if (x[0] >= B_WIDTH) {
-	        }
-
-	        if (x[0] < 0) {
-	        }
-	        
-	     
-	    }
-
-	
-	 @Override
-	   public void actionPerformed(ActionEvent e) {
-
-	        if (isRunning) {
-	            checkCollision();
-	            move();
-	        }
-	        repaint();
-	    }
-	 
 	private class TAdapter extends KeyAdapter {
 
 		@Override
@@ -195,7 +236,4 @@ public class DogPound extends JPanel implements ActionListener {
 		}
 	}
 
-
-		
-	}
-
+}
