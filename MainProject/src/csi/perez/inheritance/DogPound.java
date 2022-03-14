@@ -18,22 +18,31 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import csi.perez.inheritance.Dog.Food;
+
 public class DogPound extends JPanel implements ActionListener {
 
+	private static final double RAND_POS = 0;
 	List<Dog> dogs1 = new ArrayList<Dog>();
 	List<Dog.Shit> shit1 = new ArrayList<Dog.Shit>();
+	List<Food> food= new ArrayList<Food>();
 
 	private int B_WIDTH = 1000;
 	private int B_HEIGHT = 700;
 	private int DOG_SIZE = 50;
 	private int ALL_DOGS = 120;
+	private int ALL_SHITS = 60;
 
 	private final int x[] = new int[ALL_DOGS];
 	private final int y[] = new int[ALL_DOGS];
 
+	private final int x1[] = new int[ALL_SHITS];
+	private final int y1[] = new int[ALL_SHITS];
+
 	private int dogs;
 	private int shit;
-	private int food;
+	private int food_x;
+	private int food_y;
 
 	private boolean leftDirection = false;
 	private boolean rightDirection = true;
@@ -87,18 +96,20 @@ public class DogPound extends JPanel implements ActionListener {
 			for (int z = 0; z < dogs; z++) {
 				if (z == 0) {
 					g.drawImage(dogs1.get(z).icon.getImage(), x[z], y[z], this);
-			}
-
-			for (int h = 0; h < shit; h++) {
-				if (h == 0) {
-				g.drawImage(shit1.get(h).icon.getImage(), x[z], y[z], this);
 				}
-			}
-			}
-		}
+
+				for (int h = 0; h < shit; h++) {
+					if (h == 0) {
+						g.drawImage(shit1.get(h).icon.getImage(), x[z], y[z], this);
+					}
+				}
+				g.drawImage((Image) food, food_x, food_y, this);
+						}
+				}
+			
 		Toolkit.getDefaultToolkit().sync();
 	}
-
+	
 	private void move() {
 
 		for (int z = dogs; z > 0; z--) {
@@ -121,6 +132,13 @@ public class DogPound extends JPanel implements ActionListener {
 		if (downDirection) {
 			y[0] += DOG_SIZE;
 		}
+
+		for (int z = shit; z > 0; z--) {
+			x[z] = x[(z - 1)];
+			y[z] = y[(z - 1)];
+		}
+
+
 		Random rand = new Random();
 		int m = rand.nextInt(6);
 
@@ -162,7 +180,7 @@ public class DogPound extends JPanel implements ActionListener {
 		}
 
 	}
-
+   
 	private void checkCollision() {
 
 		for (int z = dogs; z > 0; z--) {

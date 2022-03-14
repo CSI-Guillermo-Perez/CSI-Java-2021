@@ -13,12 +13,9 @@ public class GoldenDoodle extends Dog {
 		return n;
 	}
 
+	@Override
 	public void wagtail() {
 		System.out.println("woosh woosh");
 	}
 
-	public Shit eat() {
-
-		return new Shit(50, "brown", "runny", "poop.png");
-	}
 }
