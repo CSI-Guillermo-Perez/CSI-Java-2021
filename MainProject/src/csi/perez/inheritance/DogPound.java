@@ -7,6 +7,7 @@ import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,24 +26,25 @@ public class DogPound extends JPanel implements ActionListener {
 	private static final double RAND_POS = 0;
 	List<Dog> dogs1 = new ArrayList<Dog>();
 	List<Dog.Shit> shit1 = new ArrayList<Dog.Shit>();
-	List<Food> food= new ArrayList<Food>();
+	List<Food> food1 = new ArrayList<Food>();
 
 	private int B_WIDTH = 1000;
 	private int B_HEIGHT = 700;
 	private int DOG_SIZE = 50;
 	private int ALL_DOGS = 120;
-	private int ALL_SHITS = 60;
+//	private int ALL_SHITS = 60;
 
 	private final int x[] = new int[ALL_DOGS];
 	private final int y[] = new int[ALL_DOGS];
 
-	private final int x1[] = new int[ALL_SHITS];
-	private final int y1[] = new int[ALL_SHITS];
+//	private final int x1[] = new int[ALL_SHITS];
+//	private final int y1[] = new int[ALL_SHITS];
 
 	private int dogs;
-	private int shit;
-	private int food_x;
-	private int food_y;
+//	private int shit;
+//	private int food_x;
+//	private int food_y;
+//	
 
 	private boolean leftDirection = false;
 	private boolean rightDirection = true;
@@ -57,6 +59,7 @@ public class DogPound extends JPanel implements ActionListener {
 
 	public DogPound() {
 		dogs1.add(new GoldenDoodle());
+
 		initBoard();
 	}
 
@@ -81,6 +84,7 @@ public class DogPound extends JPanel implements ActionListener {
 
 		timer = new Timer(DELAY, this);
 		timer.start();
+
 	}
 
 	@Override
@@ -92,24 +96,22 @@ public class DogPound extends JPanel implements ActionListener {
 
 	private void doDrawing(Graphics g) {
 
-		if (isRunning) {
-			for (int z = 0; z < dogs; z++) {
-				if (z == 0) {
-					g.drawImage(dogs1.get(z).icon.getImage(), x[z], y[z], this);
-				}
+//		Coge la imagen de dog y la implementa en el window del juego	
+		for (int z = 0; z < dogs; z++) {
 
-				for (int h = 0; h < shit; h++) {
-					if (h == 0) {
-						g.drawImage(shit1.get(h).icon.getImage(), x[z], y[z], this);
-					}
-				}
-				g.drawImage((Image) food, food_x, food_y, this);
-						}
-				}
-			
+			g.drawImage(dogs1.get(z).icon.getImage(), x[z], y[z], this);
+
+		}
+
+		for (int z = 0; z < food1.size(); z++) {
+
+			g.drawImage(food1.get(z).icon.getImage(), food1.get(z).point.x, food1.get(z).point.y, this);
+
+		}
+
 		Toolkit.getDefaultToolkit().sync();
 	}
-	
+
 	private void move() {
 
 		for (int z = dogs; z > 0; z--) {
@@ -132,12 +134,6 @@ public class DogPound extends JPanel implements ActionListener {
 		if (downDirection) {
 			y[0] += DOG_SIZE;
 		}
-
-		for (int z = shit; z > 0; z--) {
-			x[z] = x[(z - 1)];
-			y[z] = y[(z - 1)];
-		}
-
 
 		Random rand = new Random();
 		int m = rand.nextInt(6);
@@ -180,7 +176,7 @@ public class DogPound extends JPanel implements ActionListener {
 		}
 
 	}
-   
+
 	private void checkCollision() {
 
 		for (int z = dogs; z > 0; z--) {
@@ -208,12 +204,31 @@ public class DogPound extends JPanel implements ActionListener {
 
 	}
 
+	private void locateFood() {
+
+		Random rand = new Random();
+		int x = rand.nextInt(B_WIDTH);
+		int y = rand.nextInt(B_HEIGHT);
+
+		food1.add(new Dog().new Food(new Point(x, y)));
+
+//        int r = (int) (Math.random() * RAND_POS);
+//        food_x = ((r * DOG_SIZE));
+//
+//        r = (int) (Math.random() * RAND_POS);
+//        food_y = ((r * DOG_SIZE));
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
 		if (isRunning) {
 			checkCollision();
 			move();
+		}
+
+		if (food1.size() < 5) {
+			locateFood();
 		}
 		repaint();
 	}

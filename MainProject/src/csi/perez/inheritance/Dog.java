@@ -1,5 +1,7 @@
 package csi.perez.inheritance;
 
+import java.awt.Point;
+
 import javax.swing.ImageIcon;
 
 public class Dog {
@@ -21,7 +23,10 @@ public class Dog {
 				java.awt.Image.SCALE_SMOOTH));
 
 	}
+	public Dog() {
 
+	}
+	
 	public void piss() {
 		if (gender == true)
 			;
@@ -60,6 +65,7 @@ public class Dog {
 		}
 
 		public Shit() {
+			this(3,"Blue","Sharp");
 		}
 
 	}
@@ -69,6 +75,7 @@ public class Dog {
 		String texture;
 		String color;
 		ImageIcon icon;
+		Point point;
 
 		public Food(Boolean healthy, String type, String texture, String color) {
 			super();
@@ -76,8 +83,19 @@ public class Dog {
 			this.type = type;
 			this.texture = texture;
 			this.color = color;
-			this.icon = new ImageIcon(new ImageIcon(getClass().getResource("food")).getImage().getScaledInstance(120, 120,
+			this.icon = new ImageIcon(new ImageIcon(getClass().getResource("food.png")).getImage().getScaledInstance(120, 120,
 					java.awt.Image.SCALE_SMOOTH));
+		}
+		
+		public Food(Point point) {
+			this.healthy = true;
+			this.type = "Submarine";
+			this.texture = "Rugged";
+			this.color = "Green";
+			this.icon = new ImageIcon(new ImageIcon(getClass().getResource("food.png")).getImage().getScaledInstance(120, 120,
+					java.awt.Image.SCALE_SMOOTH));
+			this.point = point;
+			
 		}
 		public Shit digest() {
 
