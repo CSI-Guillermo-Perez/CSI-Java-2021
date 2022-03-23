@@ -92,11 +92,12 @@ public class Dog {
 			this.type = "Submarine";
 			this.texture = "Rugged";
 			this.color = "Green";
-			this.icon = new ImageIcon(new ImageIcon(getClass().getResource("food.png")).getImage().getScaledInstance(120, 120,
+			this.icon = new ImageIcon(new ImageIcon(getClass().getResource("food.png")).getImage().getScaledInstance(60, 60,
 					java.awt.Image.SCALE_SMOOTH));
 			this.point = point;
 			
 		}
+		 
 		public Shit digest() {
 
 			return new Shit();

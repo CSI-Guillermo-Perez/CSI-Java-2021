@@ -32,7 +32,6 @@ public class DogPound extends JPanel implements ActionListener {
 	private int B_HEIGHT = 700;
 	private int DOG_SIZE = 50;
 	private int ALL_DOGS = 120;
-//	private int ALL_SHITS = 60;
 
 	private final int x[] = new int[ALL_DOGS];
 	private final int y[] = new int[ALL_DOGS];
@@ -41,9 +40,6 @@ public class DogPound extends JPanel implements ActionListener {
 //	private final int y1[] = new int[ALL_SHITS];
 
 	private int dogs;
-//	private int shit;
-//	private int food_x;
-//	private int food_y;
 //	
 
 	private boolean leftDirection = false;
@@ -112,6 +108,20 @@ public class DogPound extends JPanel implements ActionListener {
 		Toolkit.getDefaultToolkit().sync();
 	}
 
+	private void checkFood() {
+
+		for (int z = 0; z < food1.size(); z++) {
+
+			if (food1.get(z).point.x == x[0]  &&  food1.get(z).point.y == y[0]   ) {
+				System.out.println("nom");
+				
+			}
+
+		}
+	}
+//	 public Rectangle getBounds() {
+//	        return new Rectangle(x, y, width, height);
+//	    }
 	private void move() {
 
 		for (int z = dogs; z > 0; z--) {
@@ -212,11 +222,7 @@ public class DogPound extends JPanel implements ActionListener {
 
 		food1.add(new Dog().new Food(new Point(x, y)));
 
-//        int r = (int) (Math.random() * RAND_POS);
-//        food_x = ((r * DOG_SIZE));
-//
-//        r = (int) (Math.random() * RAND_POS);
-//        food_y = ((r * DOG_SIZE));
+//     
 	}
 
 	@Override
@@ -228,9 +234,15 @@ public class DogPound extends JPanel implements ActionListener {
 		}
 
 		if (food1.size() < 5) {
+			
 			locateFood();
+			
 		}
 		repaint();
+	}
+
+	private void CheckFood() {
+
 	}
 
 	private class TAdapter extends KeyAdapter {
